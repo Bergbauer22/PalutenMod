@@ -22,7 +22,7 @@ I tried now for a long time to make a Cutscene that plays when you upgrade the T
 
 
 
-# If you don't know who is Paluten ->
+# If you don't know who is Paluten:
 Paluten, also known as Patrick Mayer, is a prominent German YouTuber and content creator. With his lively personality and entertaining content, he has amassed a large following in the online gaming community. Paluten is particularly well-known for his engaging Minecraft videos, where he showcases his creativity and gameplay skills.
 
 
