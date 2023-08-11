@@ -9,5 +9,5 @@ public static class ModHelperData
     public const string Description = "A mod that adds the German Youtuber Paluten as a Tower";
 
     public const string RepoOwner = "Bergbauer22"; // TODO add your github username hero, also in the download url in README.md
-    public const string RepoName = "Bergbauer22"; // TODO add your repo name here, also in the download url in README.md
+    public const string RepoName = "PalutenMOD"; // TODO add your repo name here, also in the download url in README.md
 }
