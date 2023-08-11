@@ -5,7 +5,9 @@
     <img align="right" alt="Download" height="75" src="https://raw.githubusercontent.com/gurrenm3/BTD-Mod-Helper/master/BloonsTD6%20Mod%20Helper/Resources/DownloadBtn.png">
 </a>
 
-About the Mod:
+
+
+
 This Btd6 Mod add the Custom Tower, the "PalutenTower", with 15 Tiers and one Paragon.
 The Top Path is a Damage Dealer Path | 
 The Middle Path is a Path where you must play very active | 
