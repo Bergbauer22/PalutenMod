@@ -1,4 +1,4 @@
-﻿using Il2CppAssets.Scripts.Models.Towers;
+using Il2CppAssets.Scripts.Models.Towers;
 using BTD_Mod_Helper.Api.Towers;
 using BTD_Mod_Helper.Extensions;
 using PalutenMod.Displays.Projectiles;
@@ -12,6 +12,7 @@ using PalutenMod.Upgrades.BottomPath;
 using System.Linq;
 using Il2CppAssets.Scripts.Models.Towers.Filters;
 using Il2Cpp;
+using BTD_Mod_Helper.Api;
 
 namespace PalutenMod.Upgrades
 {
@@ -139,6 +140,11 @@ namespace PalutenMod.Upgrades
             var Portal = Game.instance.model.GetTowerFromId("SuperMonkey-005").GetAbility().Duplicate();
             Portal.cooldown = 250;
             tower.AddBehavior(Portal);
+            //Am Start
+            
+            
+            GetAudioClip<PalutenModMOD>("HelloFriends2").Play();
+            
         }
     }
 }
