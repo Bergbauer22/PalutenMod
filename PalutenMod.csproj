@@ -9,6 +9,9 @@
         <Optimize>False</Optimize>
         <DebugType>embedded</DebugType>
     </PropertyGroup>
+    <ItemGroup>
+      <Folder Include="Cutscene\" />
+    </ItemGroup>
 
-    <Import Project="..\btd6.targets"/>
+    <Import Project="..\btd6.targets" />
 </Project>

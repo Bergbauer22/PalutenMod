@@ -18,7 +18,7 @@ namespace PalutenMod
 {
     public class PalutenTower : ModTower
     {
-        bool isParagon = false;
+
         protected override int Order => 2;
         public override string Get2DTexture(int[] tiers)
         {
@@ -93,7 +93,7 @@ namespace PalutenMod
             }
             
         }
-
+        
         public override bool Use2DModel => true;
         public override string Portrait => "PalutenMod-Portrait";
         public override string Icon => "PalutenMod-Portrait";

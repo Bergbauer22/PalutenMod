@@ -12,6 +12,7 @@ using PalutenMod.Upgrades.BottomPath;
 using System.Linq;
 using Il2CppAssets.Scripts.Models.Towers.Filters;
 using Il2Cpp;
+using BTD_Mod_Helper.Api;
 
 namespace PalutenMod.Upgrades
 {
@@ -48,12 +49,12 @@ namespace PalutenMod.Upgrades
             attackModel.weapons[0].projectile.hasDamageModifiers = true;
             attackModel.weapons[0].projectile.AddBehavior(new DamageModifierForTagModel("DamageModifierForTagModel_Ddt", "Ddt",
                 1, 499999999, false, false));
-        
-            attackModel.weapons[0].projectile.GetDamageModel().damage += 175;
+            attackModel.range *= 2;
+            attackModel.weapons[0].projectile.GetDamageModel().damage += 200;
             attackModel.weapons[0].projectile.GetBehavior<TravelStraitModel>().Speed = 10f;
             attackModel.weapons[0].projectile.GetBehavior<TravelStraitModel>().Lifespan = 250.0f;
             attackModel.weapons[0].projectile.GetDamageModel().immuneBloonProperties = BloonProperties.None;
-            attackModel.weapons[0].rate *= 0.9f;
+            attackModel.weapons[0].rate *= 1.2f;
             towerModel.range *= 1.55f;
             attackModel.weapons[0].projectile.pierce += 12;
             attackModel.weapons[0].projectile.AddBehavior(new DamageModifierForTagModel("DamageModifierForTagModel_Fortified",
@@ -62,7 +63,7 @@ namespace PalutenMod.Upgrades
             attackModel.weapons[0].projectile.AddBehavior(new DamageModifierForTagModel("DamageModifierForTagModel_Ceramic", "Ceramic",
                 1, 3, false, false));
             attackModel.weapons[0].projectile.ApplyDisplay<SterneDisplay>();
-            var Buff2 = new RateSupportModel("BadorBuff", 0.5f, true, "Rate:Support", false, 1, null, "BadorBuff", "bador", true);
+            var Buff2 = new RateSupportModel("BadorBuff", 0.5f, true, "Rate:Support", false, 1, null, "BadorBuff", "bador", false);
             Buff2.ApplyBuffIcon<Bador_Buff_DP>();
             towerModel.AddBehavior(Buff2);
             towerModel.range = 27;
@@ -96,6 +97,7 @@ namespace PalutenMod.Upgrades
         
         public override void ApplyUpgrade(TowerModel tower)
         {
+            var attackModel = tower.GetAttackModel();
             AttackModel[] Avatarspawner = { Game.instance.model.GetTowerFromId("EngineerMonkey-200").GetAttackModels().First(a => a.name == "AttackModel_Spawner_").Duplicate() };
             Avatarspawner[0].weapons[0].rate = 750;
             Avatarspawner[0].weapons[0].projectile.RemoveBehavior<CreateTowerModel>();
@@ -139,6 +141,11 @@ namespace PalutenMod.Upgrades
             var Portal = Game.instance.model.GetTowerFromId("SuperMonkey-005").GetAbility().Duplicate();
             Portal.cooldown = 250;
             tower.AddBehavior(Portal);
+            //Am Start
+            attackModel.range *= 2;
+            GetAudioClip<PalutenModMOD>("HelloFriends2").Play();
+            
         }
     }
+    
 }

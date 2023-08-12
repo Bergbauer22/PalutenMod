@@ -14,6 +14,7 @@ using Il2CppAssets.Scripts.Unity;
 using System.Linq;
 using PalutenMod.Upgrades.MiddlePath;
 using Il2CppAssets.Scripts.Models.Towers.Behaviors.Emissions;
+using Il2Cpp;
 
 namespace PalutenMod.Upgrades.TopPath
 {
@@ -95,17 +96,24 @@ namespace PalutenMod.Upgrades.TopPath
                 airModel2.droneModel.GetAttackModel().weapons[0].projectile.GetBehavior<WindModel>().distanceMax = 9;
             }
             //555
+            foreach (var weaponModel in tower.GetWeapons())
+            {
+                weaponModel.ejectX = 0;
+                weaponModel.ejectZ = 300f;
+
+            }
             if (tower.appliedUpgrades.Contains(UpgradeID<Botton_5>()) && tower.appliedUpgrades.Contains(UpgradeID<Middle_5>())){
                 airModel2.droneModel.GetAttackModel().weapons[0].projectile.GetBehavior<WindModel>().chance = 0.95f;
                 airModel2.droneModel.GetAttackModel().weapons[0].projectile.GetBehavior<WindModel>().distanceMax = 250;
                 airModel2.droneModel.GetAttackModel().weapons[0].projectile.GetBehavior<WindModel>().distanceMin = 100;
-                lightning.projectile.GetDamageModel().damage += 100000;
-                airModel2.droneModel.GetAttackModel().weapons[0].rate *= 0.45f;
+                lightning.projectile.GetDamageModel().damage += 9000000;
+                airModel2.droneModel.GetAttackModel().weapons[0].rate *= 0.55f;
                 lightning.emission = new InstantDamageEmissionModel("InstantDamageEmissionModel_", null);
                 Portal.canActivateBetweenRounds = true;
                 Portal.cooldown = 60;
                 airModel2.droneModel.GetAttackModel().weapons[0].projectile.AddBehavior(new DamageModifierForTagModel("DamageModifierForTagModel_Bad",
                 "Bad", 1, 2222222, false, false));
+
             }
         
 
