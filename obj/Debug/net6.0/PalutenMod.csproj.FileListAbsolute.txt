@@ -1,0 +1,10 @@
+C:\Users\const\Documents\BTD6 Mod Sources\PalutenMod\obj\Debug\net6.0\PalutenMod.csproj.AssemblyReference.cache
+C:\Users\const\Documents\BTD6 Mod Sources\PalutenMod\obj\Debug\net6.0\PalutenMod.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\const\Documents\BTD6 Mod Sources\PalutenMod\obj\Debug\net6.0\PalutenMod.AssemblyInfoInputs.cache
+C:\Users\const\Documents\BTD6 Mod Sources\PalutenMod\obj\Debug\net6.0\PalutenMod.AssemblyInfo.cs
+C:\Users\const\Documents\BTD6 Mod Sources\PalutenMod\obj\Debug\net6.0\PalutenMod.csproj.CoreCompileInputs.cache
+C:\Users\const\Documents\BTD6 Mod Sources\PalutenMod\bin\Debug\net6.0\PalutenMod.deps.json
+C:\Users\const\Documents\BTD6 Mod Sources\PalutenMod\bin\Debug\net6.0\PalutenMod.dll
+C:\Users\const\Documents\BTD6 Mod Sources\PalutenMod\obj\Debug\net6.0\PalutenMod.dll
+C:\Users\const\Documents\BTD6 Mod Sources\PalutenMod\obj\Debug\net6.0\refint\PalutenMod.dll
+C:\Users\const\Documents\BTD6 Mod Sources\PalutenMod\obj\Debug\net6.0\ref\PalutenMod.dll

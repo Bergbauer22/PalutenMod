@@ -26,4 +26,3 @@ I tried now for a long time to make a Cutscene that plays when you upgrade the T
 Paluten, also known as Patrick Mayer, is a prominent German YouTuber and content creator. With his lively personality and entertaining content, he has amassed a large following in the online gaming community. Paluten is particularly well-known for his engaging Minecraft videos, where he showcases his creativity and gameplay skills.
 
 
-[![Requires BTD6 Mod Helper](https://raw.githubusercontent.com/gurrenm3/BTD-Mod-Helper/master/banner.png)](https://github.com/gurrenm3/BTD-Mod-Helper#readme)
