@@ -29,8 +29,8 @@ namespace PalutenMod.Upgrades.MiddlePath
         public override int Priority => -3;
 
 
-        public override string DisplayName => "Ace of Spades";
-        public override string Description => "Aces are even more deadly, dealing extreme damage to MOAB class bloons.";
+        public override string DisplayName => "King of Meteors";
+        public override string Description => "He gets shorter cooldowns and a Star(EXTREMLY HIGH DAMGAGE)";
 
 
         public override void ApplyUpgrade(TowerModel tower)

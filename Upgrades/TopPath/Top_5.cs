@@ -26,8 +26,9 @@ namespace PalutenMod.Upgrades.TopPath
         public override int Priority => -2;
 
         public override string Description => "He's now able to use Lightnings and recieved an End Portal ability that can Terminate Everythink (BIG Cooldown)";
+        public override string DisplayName => "Hacked Minecraft";
 
-        
+
         public class PalutenDisplay : ModDisplay
         {
             public override string BaseDisplay => Generic2dDisplay;

@@ -66,7 +66,7 @@ namespace PalutenMod.Upgrades
             var Buff2 = new RateSupportModel("BadorBuff", 0.5f, true, "Rate:Support", false, 1, null, "BadorBuff", "bador", false);
             Buff2.ApplyBuffIcon<Bador_Buff_DP>();
             towerModel.AddBehavior(Buff2);
-            towerModel.range = 27;
+            towerModel.range = attackModel.range;
             attackModel.range *= 1.5f;
             towerModel.RemoveBehavior<CreateSoundOnTowerPlaceModel>();
             towerModel.RemoveBehavior<CreateSoundOnUpgradeModel>();
@@ -140,6 +140,7 @@ namespace PalutenMod.Upgrades
             tower.GetAttackModel().AddWeapon(lightning);
             var Portal = Game.instance.model.GetTowerFromId("SuperMonkey-005").GetAbility().Duplicate();
             Portal.cooldown = 250;
+            tower.range = attackModel.range;
             tower.AddBehavior(Portal);
             //Am Start
             attackModel.range *= 2;
