@@ -39,7 +39,7 @@ namespace PalutenMod
         }
         public override void OnTowerUpgraded(Tower tower, string upgradeName, TowerModel newBaseTowerModel)
         {
-            ModHelper.Msg<PalutenModMOD>(upgradeName);
+            //ModHelper.Msg<PalutenModMOD>(upgradeName);
             if (upgradeName == "PalutenMod-PalutenTower Paragon")
             {
                 PalutenParaUpgrade();
