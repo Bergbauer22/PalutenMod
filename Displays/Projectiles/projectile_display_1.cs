@@ -86,6 +86,7 @@ namespace PalutenMod.Displays.Projectiles
     public class P_Trap: ModDisplay
     {
         public override string BaseDisplay => Generic2dDisplay;
+        public override float Scale => 0.75f;
         public override Vector3 PositionOffset => new(0, 1f, 0);
         public override void ModifyDisplayNode(UnityDisplayNode node)
         { Set2DTexture(node, "PumTrap"); }
@@ -93,6 +94,7 @@ namespace PalutenMod.Displays.Projectiles
     public class P_Trap2 : ModDisplay
     {
         public override string BaseDisplay => Generic2dDisplay;
+        public override float Scale => 0.77f;
         public override Vector3 PositionOffset => new(0, 1f, 0);
         public override void ModifyDisplayNode(UnityDisplayNode node)
         { Set2DTexture(node, "PumTrap_2"); }

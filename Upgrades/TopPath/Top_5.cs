@@ -15,6 +15,7 @@ using System.Linq;
 using PalutenMod.Upgrades.MiddlePath;
 using Il2CppAssets.Scripts.Models.Towers.Behaviors.Emissions;
 using Il2Cpp;
+using Il2CppAssets.Scripts.Models.Towers.Behaviors.Attack;
 
 namespace PalutenMod.Upgrades.TopPath
 {
@@ -105,16 +106,22 @@ namespace PalutenMod.Upgrades.TopPath
             }
             if (tower.appliedUpgrades.Contains(UpgradeID<Botton_5>()) && tower.appliedUpgrades.Contains(UpgradeID<Middle_5>())){
                 airModel2.droneModel.GetAttackModel().weapons[0].projectile.GetBehavior<WindModel>().chance = 0.95f;
-                airModel2.droneModel.GetAttackModel().weapons[0].projectile.GetBehavior<WindModel>().distanceMax = 250;
-                airModel2.droneModel.GetAttackModel().weapons[0].projectile.GetBehavior<WindModel>().distanceMin = 100;
-                lightning.projectile.GetDamageModel().damage += 9000000;
-                airModel2.droneModel.GetAttackModel().weapons[0].rate *= 0.55f;
+                airModel2.droneModel.GetAttackModel().weapons[0].projectile.GetBehavior<WindModel>().distanceMax = 2500;
+                airModel2.droneModel.GetAttackModel().weapons[0].projectile.GetBehavior<WindModel>().distanceMin = 1000;
+                lightning.projectile.GetDamageModel().damage += 999999999;
+                lightning.projectile.pierce = 999999999;
+                airModel2.droneModel.GetAttackModel().weapons[0].projectile.pierce = 999999999;
+                airModel2.droneModel.GetAttackModel().weapons[0].rate *= 0.5f;
+                airModel2.droneModel.GetAttackModel().weapons[0].projectile.GetDamageModel().damage += 999999999;
                 lightning.emission = new InstantDamageEmissionModel("InstantDamageEmissionModel_", null);
+                airModel2.droneModel.GetAttackModel().weapons[0].emission = new InstantDamageEmissionModel("InstantDamageEmissionModel_", null);
                 Portal.canActivateBetweenRounds = true;
-                Portal.cooldown = 60;
+                Portal.cooldown = 30;
+                Portal.maxActivationsPerRound = 99999;
+
                 airModel2.droneModel.GetAttackModel().weapons[0].projectile.AddBehavior(new DamageModifierForTagModel("DamageModifierForTagModel_Bad",
                 "Bad", 1, 2222222, false, false));
-
+                //tower.GetAttackModel().weapons[0].projectile.RemoveBehavior(Game.instance.model.GetTower(TowerType.GlueGunner, 3, 2, 0).GetWeapon().projectile.Duplicate());
             }
         
 

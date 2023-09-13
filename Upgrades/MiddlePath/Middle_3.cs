@@ -61,7 +61,11 @@ namespace PalutenMod.Upgrades.MiddlePath
             {
                 trap.weapons[0].Rate = 200f;
             }
+            if (!(tower.appliedUpgrades.Contains(UpgradeID<Botton_5>()) && !tower.appliedUpgrades.Contains(UpgradeID<Middle_5>())))
+            {
                 tower.AddBehavior(trap);
+            }
+            
         }
     }
 }

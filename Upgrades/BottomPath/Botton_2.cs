@@ -10,6 +10,7 @@ using Il2CppAssets.Scripts.Models.Towers.Weapons;
 using Il2CppAssets.Scripts.Utils;
 using PalutenMod.Displays.Projectiles;
 using Il2CppAssets.Scripts.Models.Towers.Behaviors.Emissions;
+using PalutenMod.Upgrades.MiddlePath;
 
 namespace PalutenMod.Upgrades.BottomPath
 {
@@ -40,7 +41,11 @@ namespace PalutenMod.Upgrades.BottomPath
             fire.radius = 50;
             fire.GetDescendants<Il2CppAssets.Scripts.Models.Towers.Filters.FilterInvisibleModel>().ForEach(model => model.isActive = false);
             projectile.GetBehavior<TravelStraitModel>().Lifespan = 10.01f;
-            projectile.AddBehavior(fire);
+            if (!tower.appliedUpgrades.Contains(UpgradeID<Botton_5>()) && !tower.appliedUpgrades.Contains(UpgradeID<Middle_5>()))
+            {
+                projectile.AddBehavior(fire);
+            }
+                
             tower.GetWeapon().emission = new ArcEmissionModel("ArcEmissionModel_", 3, 0, 15, null, false, false);
         }
     }
