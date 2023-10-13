@@ -41,8 +41,8 @@ namespace PalutenMod.Upgrades.MiddlePath
             }
             var attackModel = tower.GetAttackModel();
             var trap = Game.instance.model.GetTowerFromId("EngineerMonkey-024").behaviors.First(a => a.name.Contains("BloonTrap")).Cast<AttackModel>().Duplicate();
-            trap.range = 40;
-            tower.range = 40;
+            trap.range += 40;
+            tower.range += 40;
             tower.towerSelectionMenuThemeId = "SelectPointInput";
             trap.weapons[0].projectile.pierce = 400;
             trap.weapons[0].projectile.GetBehavior<EatBloonModel>().rbeCapacity = 20000;

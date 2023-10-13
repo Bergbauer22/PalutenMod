@@ -57,6 +57,7 @@ namespace PalutenMod.Upgrades.BottomPath
             Buff.ApplyBuffIcon<GLP_Buff_DP>();
             towerModel.AddBehavior(Buff);
             towerModel.range = 40;
+            towerModel.radius += 25;
             towerModel.RemoveBehavior<CreateSoundOnTowerPlaceModel>();
             towerModel.RemoveBehavior<CreateSoundOnUpgradeModel>();
             HealthIncrease.regenAmount = 5;

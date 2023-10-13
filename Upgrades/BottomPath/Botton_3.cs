@@ -55,12 +55,12 @@ namespace PalutenMod.Upgrades.BottomPath
                 fire.pierce += 6;
                 //AirModel
                 airModel.droneModel.GetBehavior<AirUnitModel>().display = ModContent.CreatePrefabReference<SmallEdgarDisplay>();
-                airModel.droneModel.GetAttackModel().weapons[0].Rate = 0.15f;
+                airModel.droneModel.GetAttackModel().weapons[0].Rate = 0.18f;
                 airModel.droneModel.GetAttackModel().weapons[0].projectile.ApplyDisplay<SmallADisplay>();
                 airModel.droneModel.range = tower.range * 2+100;
                 airModel.droneModel.GetAttackModel().range = tower.range * 2+100;
                 airModel.droneModel.GetAttackModel().GetBehavior<PursuitSettingCustomModel>().mustBeInRangeOfParent = false;
-                airModel.droneModel.GetAttackModel().weapons[0].projectile.pierce += 6;
+                airModel.droneModel.GetAttackModel().weapons[0].projectile.pierce += 7;
                 airModel.droneModel.GetAttackModel().weapons[0].projectile.GetDamageModel().damage += 2;
                 airModel.droneModel.GetAttackModel().weapons[0].projectile.AddBehavior(fire);             
                 airModel.droneModel.GetAttackModel().weapons[0].projectile.collisionPasses = new Il2CppStructArray<int>(collPass);

@@ -45,11 +45,11 @@ namespace PalutenMod.Upgrades.MiddlePath
                 attackModel.weapons[0].projectile.AddBehavior(Game.instance.model.GetTowerFromId("BombShooter-302").GetAttackModel().weapons[0].projectile.GetBehavior<CreateSoundOnProjectileCollisionModel>().Duplicate());
                 attackModel.weapons[0].projectile.GetBehavior<CreateProjectileOnContactModel>().projectile.GetDamageModel().damage += 2.0f;
                 attackModel.weapons[0].projectile.GetBehavior<CreateProjectileOnContactModel>().projectile.pierce = 85.0f;
-                weaponModel.projectile.pierce += 6;
-                projectile22.GetBehavior<TravelStraitModel>().Lifespan = 0.51f;
+                weaponModel.projectile.pierce += 4;
+                projectile22.GetBehavior<TravelStraitModel>().Lifespan = 0.75f;
                 
                 projectile22.ApplyDisplay<BigPumpin_PT_Display>();
-                weaponModel.Rate *= 0.9f;
+                weaponModel.Rate *= 0.95f;
             }
         }
     }

@@ -56,7 +56,7 @@ namespace PalutenMod.Upgrades.TopPath
             airModel2.droneModel.GetAttackModel().weapons[0].rate *= 0.85f;
             airModel2.droneModel.GetAttackModel().weapons[0].projectile.GetBehavior<DamageModel>().overrideDistributeBlocker = true;
             airModel2.droneModel.GetAttackModel().weapons[0].projectile.AddBehavior(new DamageModifierForTagModel("DamageModifierForTagModel_Ddt", "Ddt",
-                1, 499999999, false, false));
+                1, 49999999, false, false));
             var druid = Game.instance.model.GetTower(TowerType.Druid, 2);
             var lightning = druid.GetAttackModel().weapons.First(w => w.name == "WeaponModel_Lightning").Duplicate();
             lightning.animation = 1;
@@ -112,15 +112,16 @@ namespace PalutenMod.Upgrades.TopPath
                 lightning.projectile.pierce = 999999999;
                 airModel2.droneModel.GetAttackModel().weapons[0].projectile.pierce = 999999999;
                 airModel2.droneModel.GetAttackModel().weapons[0].rate *= 0.5f;
-                airModel2.droneModel.GetAttackModel().weapons[0].projectile.GetDamageModel().damage += 999999999;
+                airModel2.droneModel.GetAttackModel().weapons[0].projectile.GetDamageModel().damage += 899999999;
                 lightning.emission = new InstantDamageEmissionModel("InstantDamageEmissionModel_", null);
                 airModel2.droneModel.GetAttackModel().weapons[0].emission = new InstantDamageEmissionModel("InstantDamageEmissionModel_", null);
                 Portal.canActivateBetweenRounds = true;
                 Portal.cooldown = 30;
                 Portal.maxActivationsPerRound = 99999;
-
+                airModel2.droneModel.GetAttackModel().weapons[0].projectile.AddBehavior(new DamageModifierForTagModel("DamageModifierForTagModel_Ddt", "Ddt",
+                1, 2, false, false));
                 airModel2.droneModel.GetAttackModel().weapons[0].projectile.AddBehavior(new DamageModifierForTagModel("DamageModifierForTagModel_Bad",
-                "Bad", 1, 2222222, false, false));
+                "Bad", 1, 1, false, false));
                 //tower.GetAttackModel().weapons[0].projectile.RemoveBehavior(Game.instance.model.GetTower(TowerType.GlueGunner, 3, 2, 0).GetWeapon().projectile.Duplicate());
             }
         

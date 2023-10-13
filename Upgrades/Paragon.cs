@@ -39,6 +39,7 @@ namespace PalutenMod.Upgrades
 
         public override void ModifyBaseTowerModel(TowerModel towerModel)
         {
+            towerModel.radius += 25;
             towerModel.isSubTower = true;
             towerModel.GetDescendants<FilterInvisibleModel>().ForEach(model => model.isActive = false);
             towerModel.icon = towerModel.portrait = Game.instance.model.GetTowerFromId("DartMonkey-010").portrait;
@@ -48,15 +49,15 @@ namespace PalutenMod.Upgrades
             attackModel.weapons[0].projectile.AddBehavior(Game.instance.model.GetTowerFromId("Adora 20").GetAttackModel().weapons[0].projectile.GetBehavior<AdoraTrackTargetModel>().Duplicate());
             attackModel.weapons[0].projectile.hasDamageModifiers = true;
             attackModel.weapons[0].projectile.AddBehavior(new DamageModifierForTagModel("DamageModifierForTagModel_Ddt", "Ddt",
-                1, 499999999, false, false));
+                1, 49999999, false, false));
             attackModel.range *= 2;
             attackModel.weapons[0].projectile.GetDamageModel().damage += 200;
             attackModel.weapons[0].projectile.GetBehavior<TravelStraitModel>().Speed = 10f;
             attackModel.weapons[0].projectile.GetBehavior<TravelStraitModel>().Lifespan = 250.0f;
             attackModel.weapons[0].projectile.GetDamageModel().immuneBloonProperties = BloonProperties.None;
-            attackModel.weapons[0].rate *= 1.2f;
-            towerModel.range *= 1.55f;
-            attackModel.weapons[0].projectile.pierce += 12;
+            attackModel.weapons[0].rate *= 1.3f;
+            towerModel.range *= 2.55f;
+            attackModel.weapons[0].projectile.pierce += 14;
             attackModel.weapons[0].projectile.AddBehavior(new DamageModifierForTagModel("DamageModifierForTagModel_Fortified",
                 "Fortified",
                 1, 2, false, false));
@@ -91,7 +92,7 @@ namespace PalutenMod.Upgrades
     }
     public class Paragon : ModParagonUpgrade<PalutenTower>
     {
-        public override int Cost => 850000;
+        public override int Cost => 900000;
         public override string Description => "Paluten tranform into the ALMIGHTY POWER MACHINE";
         public override string DisplayName => "ALMIGHTY POWER MACHINE";
         
@@ -131,8 +132,8 @@ namespace PalutenMod.Upgrades
             var lightning = druid.GetAttackModel().weapons.First(w => w.name == "WeaponModel_Lightning").Duplicate();
             lightning.animation = 1;
             lightning.projectile.pierce = 9999999;
-            lightning.rate = 0.005f;
-            lightning.projectile.GetDamageModel().damage += 20;
+            lightning.rate = 0.0075f;
+            lightning.projectile.GetDamageModel().damage += 25;
             lightning.projectile.AddBehavior(new DamageModifierForTagModel("DamageModifierForTagModel_Ceramic", "Ceramic",
                 1, 130, false, false));
             lightning.projectile.AddBehavior(new DamageModifierForTagModel("DamageModifierForTagModel_Fortified",
@@ -142,8 +143,8 @@ namespace PalutenMod.Upgrades
             Portal.cooldown = 250;
             tower.range = attackModel.range;
             tower.AddBehavior(Portal);
-            //Am Start
-            attackModel.range *= 2;
+            attackModel.range *= 4;
+            tower.range = attackModel.range;
             GetAudioClip<PalutenModMOD>("HelloFriends2").Play();
             
         }

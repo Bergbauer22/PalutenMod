@@ -25,7 +25,7 @@ namespace PalutenMod.Upgrades.MiddlePath
     {
         public override int Path => MIDDLE;
         public override int Tier => 5;
-        public override int Cost => 60000;
+        public override int Cost => 70000;
         public override int Priority => -3;
 
 
@@ -35,17 +35,16 @@ namespace PalutenMod.Upgrades.MiddlePath
 
         public override void ApplyUpgrade(TowerModel tower)
         {
-            
-                //Generell
+            //Generell
             var attackModelPV = tower.GetAttackModel();
             var projectilePV = attackModelPV.weapons[0].projectile;
-            tower.GetWeapon().Rate *= 0.5f;
-            projectilePV.GetDamageModel().damage += 500;
+            tower.GetWeapon().Rate *= 0.8f;
+            projectilePV.GetDamageModel().damage += 75;
             projectilePV.AddBehavior(new DamageModifierForTagModel("DamageModifierForTagModel_Fortified",
                 "Fortified",
-                1, 90, false, false));
+                1, 25, false, false));
             projectilePV.AddBehavior(new DamageModifierForTagModel("DamageModifierForTagModel_Ceramic", "Ceramic",
-                1, 100, false, false));
+                1, 75, false, false));
             projectilePV.pierce += 2000;
             //Abilitys
             var OldAbilityModell1 = tower.GetAbilities();
@@ -54,27 +53,27 @@ namespace PalutenMod.Upgrades.MiddlePath
             tower.RemoveBehavior<AbilityModel>();
             //1
             var abilityModel = new AbilityModel("AbilityModel_Middle_5", "Following Meteor Big",
-                "Throws a super powerful Ace card that seeks Bloons along the track.", 1, 0,
-                GetSpriteReference("Middle_4-Icon"), 45f, null, false, false, null,
+                "s", 1, 0,
+                GetSpriteReference("AbilityNorm"), 45f, null, false, false, null,
                 0, 0, 9999999, false, false);
             tower.AddBehavior(abilityModel);
 
             //2
             var abilityModel2 = new AbilityModel("AbilityModel_Middle_5_2", "Following Meteor Big2",
-                "Throws a super powerful Ace card that seeks Bloons along the track.", 1, 0,
-                GetSpriteReference("Ability2"), 75f, null, false, false, null,
+                "s  ", 1, 0,
+                GetSpriteReference("AbilityGlue"), 75f, null, false, false, null,
                 0, 0, 9999999, false, false);
             tower.AddBehavior(abilityModel2);
 
             //3
             var abilityModel3 = new AbilityModel("AbilityModel_Middle_5_3", "Following Meteor Big3",
-                "Throws a super powerful Ace card that seeks Bloons along the track.", 1, 0,
-                GetSpriteReference("Ability3"), 20f, null, false, false, null,
+                "s", 1, 0,
+                GetSpriteReference("AbilityEis"), 20f, null, false, false, null,
                 0, 0, 9999999, false, false);
             tower.AddBehavior(abilityModel3);
             //4
             var abilityModel4 = new AbilityModel("AbilityModel_Middle_5_4", "Following Meteor Big4",
-                "Throws a super powerful Ace card that seeks Bloons along the track.", 1, 0,
+                "s", 1, 0,
                 GetSpriteReference("Ability4"), 600f, null, false, false, null,
                 0, 0, 9999999, false, false);
             tower.AddBehavior(abilityModel4);
@@ -212,7 +211,7 @@ namespace PalutenMod.Upgrades.MiddlePath
             projectileModel2.GetBehavior<TravelStraitModel>().Lifespan = 35.0f;
             foreach (var damageModifierForTagModel in projectileModel2.GetBehaviors<DamageModifierForTagModel>())
             {
-                damageModifierForTagModel.damageAddative = 100000;
+                damageModifierForTagModel.damageAddative = 50000;
             }
             projectileModel2.AddBehavior(new DamageModifierForTagModel("DamageModifierForTagModel_Moabs", "Moabs",
                 1, 100000, false, false));
@@ -256,22 +255,22 @@ namespace PalutenMod.Upgrades.MiddlePath
             projectileModel4.pierce = 99999999999;
             projectileModel4.RemoveBehavior<RotateModel>();
             projectileModel4.GetBehavior<RetargetOnContactModel>().distance = 2000;
-            projectileModel4.GetDamageModel().damage = 999;
+            projectileModel4.GetDamageModel().damage = 1000;
             projectileModel4.GetDamageModel().immuneBloonProperties = BloonProperties.None;
             projectileModel4.AddBehavior(new DamageModifierForTagModel("DamageModifierForTagModel_Ceramic", "Ceramic",
-                1, 999999, false, false));
+                1, 10000, false, false));
             projectileModel4.AddBehavior(new DamageModifierForTagModel("DamageModifierForTagModel_Fortified",
                 "Fortified",
-                1, 1000000, false, false));
+                1, 100000, false, false));
             projectileModel4.GetBehavior<TravelStraitModel>().Speed = 1000f;
             projectileModel4.GetBehavior<TravelStraitModel>().Lifespan = 500.0f;
             projectileModel4.GetBehavior<DamageModel>().overrideDistributeBlocker = true;
             foreach (var damageModifierForTagModel in projectileModel4.GetBehaviors<DamageModifierForTagModel>())
             {
-                damageModifierForTagModel.damageAddative = 99001;
+                damageModifierForTagModel.damageAddative = 10000;
             }
             projectileModel4.AddBehavior(new DamageModifierForTagModel("DamageModifierForTagModel_Moabs", "Moabs",
-                1, 900000, false, false));
+                1, 249000, false, false));
         }
     }
 }

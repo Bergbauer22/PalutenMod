@@ -13,7 +13,7 @@ namespace PalutenMod.Upgrades.TopPath
 
         public override int Path => TOP;
         public override int Tier => 1;
-        public override int Cost => 700;
+        public override int Cost => 900;
 
         // public override string DisplayName => "Don't need to override this, the default turns it into 'Pair'"
 

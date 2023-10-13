@@ -63,6 +63,7 @@ namespace PalutenMod.Upgrades.BottomPath
             towerModel.RemoveBehavior<CreateSoundOnTowerPlaceModel>();
             towerModel.RemoveBehavior<CreateSoundOnUpgradeModel>();
             towerModel.AddBehavior(new CreditPopsToParentTowerModel("DamageForMainTower"));
+            towerModel.radius += 25;
         }
 
     }
@@ -114,6 +115,7 @@ namespace PalutenMod.Upgrades.BottomPath
             towerModel.RemoveBehavior<CreateSoundOnTowerPlaceModel>();
             towerModel.RemoveBehavior<CreateSoundOnUpgradeModel>();
             towerModel.AddBehavior(new CreditPopsToParentTowerModel("DamageForMainTower"));
+            towerModel.radius += 25;
         }
 
     }
@@ -139,7 +141,7 @@ namespace PalutenMod.Upgrades.BottomPath
             Avatarspawner2[0].weapons[0].projectile.AddBehavior(new CreateTowerModel("CreateTower", GetTowerModel<Maudado_1>(), 0, false, false, false, false, false));
             tower.AddBehavior(Avatarspawner2[0]);
 
-
+            
             AttackModel[] Avatarspawner3 = { Game.instance.model.GetTowerFromId("EngineerMonkey-200").GetAttackModels().First(a => a.name == "AttackModel_Spawner_").Duplicate() };
             Avatarspawner3[0].weapons[0].rate = 750;
             Avatarspawner3[0].weapons[0].projectile.RemoveBehavior<CreateTowerModel>();

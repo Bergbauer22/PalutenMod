@@ -22,8 +22,11 @@ namespace PalutenMod
         protected override int Order => 2;
         public override string Get2DTexture(int[] tiers)
         {
-            
-            if (tiers[2] == 5)
+            if (tiers[2] == 5 && tiers[1] == 5 && tiers[0] == 5)
+            {
+                return "555Tower";
+            }
+            else if (tiers[2] == 5)
             {
                 return "B5";
             }

@@ -29,7 +29,7 @@ namespace PalutenMod.Upgrades.MiddlePath
         public override string DisplayName => "Following Meteor!";
         
         public override string Description =>
-            "Abilitys: Wähle einen von 3 Starken Meteoriten aus! Moab-Glue-Termineteor[90s] | Ice-Meteor[30s] | Anti-Bloon-Meteor[60s]";
+            "Abilitys: Choose one from 3 strong meteors! Moab-Glue-Termineteor[90s] | Ice-Meteor[30s] | Anti-Bloon-Meteor[60s]";
 
 
         
@@ -51,21 +51,21 @@ namespace PalutenMod.Upgrades.MiddlePath
 
             //1
             var abilityModel = new AbilityModel("AbilityModel_Middle_4", "Following Meteor Small",
-                "Throws a super powerful Ace card that seeks Bloons along the track.", 1, 0,
+                "s", 1, 0,
                 GetSpriteReference("Middle_4-Icon"), 60f, null, false, false, null,
                 0, 0, 9999999, false, false);
             tower.AddBehavior(abilityModel);
 
             //2
             var abilityModel2 = new AbilityModel("AbilityModel_Middle_4_2", "Following Meteor Small2",
-                "Throws a super powerful Ace card that seeks Bloons along the track.", 1, 0,
+                "s", 1, 0,
                 GetSpriteReference("Ability2"), 90f, null, false, false, null,
                 0, 0, 9999999, false, false);
             tower.AddBehavior(abilityModel2);
 
             //3
             var abilityModel3 = new AbilityModel("AbilityModel_Middle_4_3", "Following Meteor Small3",
-                "Throws a super powerful Ace card that seeks Bloons along the track.", 1, 0,
+                "s", 1, 0,
                 GetSpriteReference("Ability3"), 30f, null, false, false, null,
                 0, 0, 9999999, false, false);
             tower.AddBehavior(abilityModel3);
