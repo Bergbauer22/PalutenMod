@@ -16,6 +16,7 @@ using PalutenMod.Upgrades.TopPath;
 using Il2CppAssets.Scripts.Models.Towers.Filters;
 using Il2CppAssets.Scripts.Simulation.SMath;
 using static Il2CppNinjaKiwi.LiNK.Endpoints.Payment_SteamGetIAPs;
+using Il2CppNinjaKiwi.Common.ResourceUtils;
 
 namespace PalutenMod.Upgrades.BottomPath
 {
