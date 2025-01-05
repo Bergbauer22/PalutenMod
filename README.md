@@ -1,6 +1,6 @@
 # PalutenTower
 
-<a href="https://github.com/Bergbauer22/PalutenMod/releases/download/v0.1.5/PalutenMod.dll">
+<a href="https://github.com/Bergbauer22/PalutenMod/releases/latest/download/PalutenMod.dll">
     <img align="left" alt="Icon" height="100" src="Icon.png">
     <img align="right" alt="Download" height="75" src="https://raw.githubusercontent.com/gurrenm3/BTD-Mod-Helper/master/BloonsTD6%20Mod%20Helper/Resources/DownloadBtn.png">
     
