@@ -25,7 +25,7 @@ namespace PalutenMod.Upgrades.MiddlePath
         public override int Cost => 1250;
 
         public override string DisplayName => "Bigger Bombs";
-        public override string Description => "Better Explosions -> More Damage";
+        public override string Description => "Better explosions now deal more damage";
 
         
 
@@ -35,7 +35,7 @@ namespace PalutenMod.Upgrades.MiddlePath
             {
                     var attackModel = tower.GetAttackModel();
                     var projectile = attackModel.weapons[0].projectile;
-                    projectile.GetDamageModel().damage += 2;
+                    projectile.GetDamageModel().damage += 1;
                     projectile.AddBehavior(new DamageModifierForTagModel("DamageModifierForTagModel_Moabs", "Moabs",
                     1, 50, false, false));
                     attackModel.weapons[0].projectile.AddBehavior(Game.instance.model.GetTowerFromId("BombShooter-200").GetAttackModel().weapons[0].projectile.GetBehavior<CreateProjectileOnContactModel>().Duplicate());
@@ -46,7 +46,7 @@ namespace PalutenMod.Upgrades.MiddlePath
                     attackModel.weapons[0].projectile.AddBehavior(Game.instance.model.GetTowerFromId("BombShooter-200").GetAttackModel().weapons[0].projectile.GetBehavior<CreateEffectOnContactModel>().Duplicate());
                     attackModel.weapons[0].projectile.AddBehavior(Game.instance.model.GetTowerFromId("BombShooter-200").GetAttackModel().weapons[0].projectile.GetBehavior<CreateSoundOnProjectileCollisionModel>().Duplicate());
                     attackModel.weapons[0].projectile.GetBehavior<CreateProjectileOnContactModel>().projectile.GetDamageModel().damage += 1.0f;
-                    attackModel.weapons[0].projectile.GetBehavior<CreateProjectileOnContactModel>().projectile.pierce = 85.0f;
+                    attackModel.weapons[0].projectile.GetBehavior<CreateProjectileOnContactModel>().projectile.pierce = 5.0f;
                     weaponModel.projectile.pierce = 1;
                     projectile.GetBehavior<TravelStraitModel>().Lifespan = 0.01f;                 
                 

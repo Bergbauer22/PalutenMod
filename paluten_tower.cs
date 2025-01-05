@@ -19,6 +19,10 @@ namespace PalutenMod
     public class PalutenTower : ModTower
     {
 
+        public override bool IsValidCrosspath(int[] tiers) =>
+        ModHelper.HasMod("UltimateCrosspathing") || base.IsValidCrosspath(tiers);
+
+
         protected override int Order => 2;
         public override string Get2DTexture(int[] tiers)
         {
@@ -109,7 +113,7 @@ namespace PalutenMod
         public override int TopPathUpgrades => 5;
         public override int MiddlePathUpgrades => 5;
         public override int BottomPathUpgrades => 5;
-        public override string Description => "Mit Kürbis/Freunden/Mini Paluten an die Macht";
+        public override string Description => "Freedom! Freedom! Freedom!";
         public override ParagonMode ParagonMode => ParagonMode.Base000;
 
 
@@ -122,7 +126,7 @@ namespace PalutenMod
             var projectile = attackModel.weapons[0].projectile;
             //projectile.name = "BasicPumkin";
             projectile.ApplyDisplay<BasisPumpin_PT_Display>(); 
-            projectile.pierce += 22;
+            projectile.pierce += 12;
             
             //projectile.hasDamageModifiers = true;
             var bomb = Game.instance.model.GetTower(TowerType.BombShooter,0,3,1).GetWeapon().projectile.Duplicate();
@@ -140,7 +144,6 @@ namespace PalutenMod
         {
             return towerSet.First(model => model.towerId == TowerType.BoomerangMonkey).towerIndex + 1;
         }      
-        public override bool IsValidCrosspath(int[] tiers) =>
-            ModHelper.HasMod("UltimateCrosspathing") || base.IsValidCrosspath(tiers);
+
     }
 }

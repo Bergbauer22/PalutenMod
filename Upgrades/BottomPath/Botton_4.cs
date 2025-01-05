@@ -33,7 +33,7 @@ namespace PalutenMod.Upgrades.BottomPath
         public override string Portrait => "Glp_1";
         public override string Icon => "Glp_1";
         public override bool DontAddToShop => true;
-        public override string Description => "GLP";
+        public override string Description => "This Time he actually doesn't steal your money.....he must be a clone";
 
         public override void ModifyBaseTowerModel(TowerModel towerModel)
         {
@@ -45,11 +45,11 @@ namespace PalutenMod.Upgrades.BottomPath
             attackModel.weapons[0].projectile.AddBehavior(new DamageModifierForTagModel("dmgMod", "Moabs", 2f, 5f, false, false));
             attackModel.weapons[0].projectile.AddBehavior(Game.instance.model.GetTowerFromId("Adora 20").GetAttackModel().weapons[0].projectile.GetBehavior<AdoraTrackTargetModel>().Duplicate());
             attackModel.weapons[0].projectile.hasDamageModifiers = true;
-            attackModel.weapons[0].projectile.GetDamageModel().damage += 3;
+            attackModel.weapons[0].projectile.GetDamageModel().damage += 1;
             attackModel.weapons[0].projectile.GetBehavior<TravelStraitModel>().Speed = 50f;
-            attackModel.weapons[0].rate *= 0.7f;
-            towerModel.range *= 1.6f;
-            attackModel.weapons[0].projectile.pierce += 20;
+            attackModel.weapons[0].rate *= 0.8f;
+            towerModel.range *= 1.4f;
+            attackModel.weapons[0].projectile.pierce += 12;
             attackModel.weapons[0].projectile.ApplyDisplay<KlumpiDP>();
             towerModel.AddBehavior(new HeroXpScaleSupportModel("HeroXpScaleSupportModel", true, 10, null, null, null));
             var HealthIncrease = Game.instance.model.GetTowerFromId("Benjamin 6").GetDescendant<LifeRegenModel>().Duplicate();
@@ -57,7 +57,7 @@ namespace PalutenMod.Upgrades.BottomPath
             Buff.ApplyBuffIcon<GLP_Buff_DP>();
             towerModel.AddBehavior(Buff);
             towerModel.range = 40;
-            towerModel.radius += 25;
+            towerModel.radius = 10;
             towerModel.RemoveBehavior<CreateSoundOnTowerPlaceModel>();
             towerModel.RemoveBehavior<CreateSoundOnUpgradeModel>();
             HealthIncrease.regenAmount = 5;
@@ -74,7 +74,7 @@ namespace PalutenMod.Upgrades.BottomPath
         public override int Tier => 4;
         public override int Cost => 15500;
         public override string Name => "Getting Help";
-        public override string Description => "Paluten summons his best friend GermanLetsPlay(He gives you each Round 500$ | 5 Lives and also Range-Buffs Nearby Monkeys";
+        public override string Description => "Paluten summons his best friend GermanLetsPlay, who gives you $500, 5 lives each round, and range buffs to nearby monkeys";
 
 
 

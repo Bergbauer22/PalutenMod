@@ -17,7 +17,7 @@ namespace PalutenMod.Upgrades.BottomPath
         public override int Tier => 1;
         public override int Cost => 2500;
 
-        public override string Description => "Tower in his Range can target any type of Bloon";
+        public override string Description => "Towers within his range can now target any type of Bloon";
         public override string DisplayName => "Helping Content";
         
 

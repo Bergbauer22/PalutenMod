@@ -22,7 +22,7 @@ namespace PalutenMod.Upgrades.MiddlePath
         public override int Tier => 2;
         public override int Cost => 3000;
 
-        public override string Description => "Now he can make with his explosions Damage to Black Bloons and his Pumkins can explode several times also + (10%) Attack speed";
+        public override string Description => "His explosions can now damage Black Bloons, his pumpkins explode multiple times, and he gains a 10% attack speed increaseeed";
         public override string DisplayName => "Better Bombs";
         
 
@@ -35,7 +35,7 @@ namespace PalutenMod.Upgrades.MiddlePath
                 //weaponModel.projectile.ApplyDisplay<BigPumpin_PT_Display>();
                 var attackModel = tower.GetAttackModel();
                 var projectile22 = attackModel.weapons[0].projectile;
-                projectile22.GetDamageModel().damage += 3;
+                projectile22.GetDamageModel().damage += 1;
                 attackModel.weapons[0].projectile.AddBehavior(Game.instance.model.GetTowerFromId("BombShooter-302").GetAttackModel().weapons[0].projectile.GetBehavior<CreateProjectileOnContactModel>().Duplicate());
                 attackModel.weapons[0].projectile.AddBehavior(Game.instance.model.GetTowerFromId("BombShooter-302").GetAttackModel().weapons[0].projectile.GetBehavior<CreateEffectOnContactModel>().Duplicate());
                 attackModel.weapons[0].projectile.AddBehavior(Game.instance.model.GetTowerFromId("BombShooter-302").GetAttackModel().weapons[0].projectile.GetBehavior<CreateSoundOnProjectileCollisionModel>().Duplicate());
@@ -43,8 +43,8 @@ namespace PalutenMod.Upgrades.MiddlePath
                 attackModel.weapons[0].projectile.AddBehavior(Game.instance.model.GetTowerFromId("BombShooter-302").GetAttackModel().weapons[0].projectile.GetBehavior<CreateProjectileOnContactModel>().Duplicate());
                 attackModel.weapons[0].projectile.AddBehavior(Game.instance.model.GetTowerFromId("BombShooter-302").GetAttackModel().weapons[0].projectile.GetBehavior<CreateEffectOnContactModel>().Duplicate());
                 attackModel.weapons[0].projectile.AddBehavior(Game.instance.model.GetTowerFromId("BombShooter-302").GetAttackModel().weapons[0].projectile.GetBehavior<CreateSoundOnProjectileCollisionModel>().Duplicate());
-                attackModel.weapons[0].projectile.GetBehavior<CreateProjectileOnContactModel>().projectile.GetDamageModel().damage += 2.0f;
-                attackModel.weapons[0].projectile.GetBehavior<CreateProjectileOnContactModel>().projectile.pierce = 85.0f;
+                attackModel.weapons[0].projectile.GetBehavior<CreateProjectileOnContactModel>().projectile.GetDamageModel().damage += 1.0f;
+                attackModel.weapons[0].projectile.GetBehavior<CreateProjectileOnContactModel>().projectile.pierce = 5.0f;
                 weaponModel.projectile.pierce += 4;
                 projectile22.GetBehavior<TravelStraitModel>().Lifespan = 0.75f;
                 

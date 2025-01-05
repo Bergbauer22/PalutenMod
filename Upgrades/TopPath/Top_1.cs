@@ -18,7 +18,7 @@ namespace PalutenMod.Upgrades.TopPath
         // public override string DisplayName => "Don't need to override this, the default turns it into 'Pair'"
 
         public override string Description => "Throws a bit faster (20%)";
-        public override string DisplayName => "Faster Shooting";
+        public override string DisplayName => "His shooting speed is now faster";
         public override void ApplyUpgrade(TowerModel tower)
         {
             tower.GetWeapon().Rate *= 0.8f; 

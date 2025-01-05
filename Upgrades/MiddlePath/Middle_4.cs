@@ -26,10 +26,10 @@ namespace PalutenMod.Upgrades.MiddlePath
         public override int Tier => 4;
         public override int Cost => 14000;
 
-        public override string DisplayName => "Following Meteor!";
+        public override string DisplayName => "Meteor Strike!";
         
         public override string Description =>
-            "Abilitys: Choose one from 3 strong meteors! Moab-Glue-Termineteor[90s] | Ice-Meteor[30s] | Anti-Bloon-Meteor[60s]";
+            "He can choose one of three powerful meteors: Moab-Glue Termineteor (90s cooldown), Ice Meteor (30s cooldown), or Anti-Bloon Meteor (60s cooldown)";
 
 
         
@@ -39,20 +39,20 @@ namespace PalutenMod.Upgrades.MiddlePath
             //Generell
             var attackModelPV = tower.GetAttackModel();
             var projectilePV = attackModelPV.weapons[0].projectile;
-            tower.GetWeapon().Rate *= 0.6f;
-            projectilePV.GetDamageModel().damage += 3;
+            tower.GetWeapon().Rate *= 0.9f;
+            projectilePV.GetDamageModel().damage += 1;
             projectilePV.AddBehavior(new DamageModifierForTagModel("DamageModifierForTagModel_Fortified",
                 "Fortified",
-                1, 9, false, false));
+                1, 1, false, false));
             projectilePV.AddBehavior(new DamageModifierForTagModel("DamageModifierForTagModel_Ceramic", "Ceramic",
-                1, 10, false, false));
-            projectilePV.pierce += 20;
+                1, 2, false, false));
+            projectilePV.pierce += 2;
             //Abilitys
 
             //1
             var abilityModel = new AbilityModel("AbilityModel_Middle_4", "Following Meteor Small",
                 "s", 1, 0,
-                GetSpriteReference("Middle_4-Icon"), 60f, null, false, false, null,
+                GetSpriteReference("Ability1"), 60f, null, false, false, null,
                 0, 0, 9999999, false, false);
             tower.AddBehavior(abilityModel);
 
@@ -74,15 +74,15 @@ namespace PalutenMod.Upgrades.MiddlePath
 
             //1
             var activateAttackModel = new ActivateAttackModel("ActivateAttackModel_Following Meteor Small", 0, true,
-                new Il2CppReferenceArray<AttackModel>(1), true, false, false, false, false);
+                new Il2CppReferenceArray<AttackModel>(1), true, false, false, false, false, false);
             abilityModel.AddBehavior(activateAttackModel);
             //2
             var activateAttackModel2 = new ActivateAttackModel("ActivateAttackModel_Following Meteor Small2", 0, true,
-                            new Il2CppReferenceArray<AttackModel>(1), true, false, false, false, false);
+                            new Il2CppReferenceArray<AttackModel>(1), true, false, false, false, false, false);
             abilityModel2.AddBehavior(activateAttackModel2);
             //3
             var activateAttackModel3 = new ActivateAttackModel("ActivateAttackModel_Following Meteor Small3", 0, true,
-                            new Il2CppReferenceArray<AttackModel>(1), true, false, false, false, false);
+                            new Il2CppReferenceArray<AttackModel>(1), true, false, false, false, false, false);
             abilityModel3.AddBehavior(activateAttackModel3);
 
 
@@ -147,21 +147,21 @@ namespace PalutenMod.Upgrades.MiddlePath
             projectileModel.pierce = 2000;
             projectileModel.RemoveBehavior<RotateModel>();
             projectileModel.GetBehavior<RetargetOnContactModel>().distance = 2000;
-            projectileModel.GetDamageModel().damage = 120;
+            projectileModel.GetDamageModel().damage = 75;
             projectileModel.GetDamageModel().immuneBloonProperties = BloonProperties.None;
             projectileModel.AddBehavior(new DamageModifierForTagModel("DamageModifierForTagModel_Ceramic", "Ceramic",
-                1, 9930, false, false));
+                1, 1, false, false));
             projectileModel.AddBehavior(new DamageModifierForTagModel("DamageModifierForTagModel_Fortified",
                 "Fortified",
-                1, 2230, false, false));
+                1, 1, false, false));
             projectileModel.GetBehavior<TravelStraitModel>().Speed = 250f;
             projectileModel.GetBehavior<TravelStraitModel>().Lifespan = 25.0f;
             foreach (var damageModifierForTagModel in projectileModel.GetBehaviors<DamageModifierForTagModel>())
             {
-                damageModifierForTagModel.damageAddative = 2750;
+                damageModifierForTagModel.damageAddative = 175;
             }
             projectileModel.AddBehavior(new DamageModifierForTagModel("DamageModifierForTagModel_Moabs", "Moabs",
-                1, 2750, false, false));
+                1, 175, false, false));
             //2
             var weapon2 = attackModel2.weapons[0];
             var fire = Game.instance.model.GetTower(TowerType.GlueGunner, 0, 2, 5).GetWeapon().projectile.Duplicate();
@@ -190,10 +190,10 @@ namespace PalutenMod.Upgrades.MiddlePath
             projectileModel2.GetBehavior<TravelStraitModel>().Lifespan = 35.0f;
             foreach (var damageModifierForTagModel in projectileModel2.GetBehaviors<DamageModifierForTagModel>())
             {
-                damageModifierForTagModel.damageAddative = 7750;
+                damageModifierForTagModel.damageAddative = 500;
             }
             projectileModel2.AddBehavior(new DamageModifierForTagModel("DamageModifierForTagModel_Moabs", "Moabs",
-                1, 6750, false, false));
+                1, 500, false, false));
             //3
             var weapon3 = attackModel3.weapons[0];
             var fire2 = Game.instance.model.GetTower(TowerType.IceMonkey, 0, 2, 5).GetWeapon().projectile.Duplicate();
@@ -214,10 +214,10 @@ namespace PalutenMod.Upgrades.MiddlePath
             projectileModel3.AddBehavior(new WindModel("WindModel_", 300, 400, 100, true, null, 0, null, 1));
             projectileModel3.GetBehavior<WindModel>().affectMoab = true;
             projectileModel3.AddBehavior(new DamageModifierForTagModel("DamageModifierForTagModel_Ceramic", "Ceramic",
-                1, 10, false, false));
+                1, 2, false, false));
             projectileModel3.AddBehavior(new DamageModifierForTagModel("DamageModifierForTagModel_Fortified",
                 "Fortified",
-                1, 26, false, false));
+                1, 3, false, false));
             projectileModel3.GetBehavior<TravelStraitModel>().Speed = 350f;
             projectileModel3.GetBehavior<TravelStraitModel>().Lifespan = 105.0f;
             foreach (var damageModifierForTagModel in projectileModel3.GetBehaviors<DamageModifierForTagModel>())
@@ -225,7 +225,7 @@ namespace PalutenMod.Upgrades.MiddlePath
                 damageModifierForTagModel.damageAddative = 50;
             }
             projectileModel3.AddBehavior(new DamageModifierForTagModel("DamageModifierForTagModel_Moabs", "Moabs",
-                1, 750, false, false));
+                1, 50, false, false));
             if (tower.GetBehavior<DroneSupportModel>() != null && tower.appliedUpgrades.Contains(UpgradeID<Botton_1>()))
             {
                 var dsm = (tower.GetBehavior<DroneSupportModel>());

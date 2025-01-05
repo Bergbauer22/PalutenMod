@@ -15,7 +15,6 @@ using Il2CppSystem.IO;
 using PalutenMod.Upgrades.TopPath;
 using Il2CppAssets.Scripts.Models.Towers.Filters;
 using Il2CppAssets.Scripts.Simulation.SMath;
-using static Il2CppNinjaKiwi.LiNK.Endpoints.Payment_SteamGetIAPs;
 using Il2CppNinjaKiwi.Common.ResourceUtils;
 
 namespace PalutenMod.Upgrades.BottomPath
@@ -26,7 +25,7 @@ namespace PalutenMod.Upgrades.BottomPath
         public override int Tier => 3;
         public override int Cost => 9050;
 
-        public override string Description => "Summons a Edga-Paper-Kite that's grant him Global Range!";
+        public override string Description => "He summons an Edga-Paper-Kite that grants him global range";
         public override string DisplayName => "First Help";
 
         public class SmallEdgarDisplay : ModDisplay
@@ -62,7 +61,7 @@ namespace PalutenMod.Upgrades.BottomPath
                 airModel.droneModel.GetAttackModel().range = tower.range * 2+100;
                 airModel.droneModel.GetAttackModel().GetBehavior<PursuitSettingCustomModel>().mustBeInRangeOfParent = false;
                 airModel.droneModel.GetAttackModel().weapons[0].projectile.pierce += 7;
-                airModel.droneModel.GetAttackModel().weapons[0].projectile.GetDamageModel().damage += 2;
+                airModel.droneModel.GetAttackModel().weapons[0].projectile.GetDamageModel().damage += 1;
                 airModel.droneModel.GetAttackModel().weapons[0].projectile.AddBehavior(fire);             
                 airModel.droneModel.GetAttackModel().weapons[0].projectile.collisionPasses = new Il2CppStructArray<int>(collPass);
                 airModel.droneModel.GetDescendants<FilterInvisibleModel>().ForEach((model) => model.isActive = false);

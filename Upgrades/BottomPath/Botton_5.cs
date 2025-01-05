@@ -33,7 +33,7 @@ namespace PalutenMod.Upgrades.BottomPath
         public override string Portrait => "Zombey";
         public override string Icon => "Zombey";
         public override bool DontAddToShop => true;
-        public override string Description => "Zombey";
+        public override string Description => "Zylinder Fanboy Nr.2";
 
         public override void ModifyBaseTowerModel(TowerModel towerModel)
         {
@@ -47,23 +47,23 @@ namespace PalutenMod.Upgrades.BottomPath
             attackModel.weapons[0].projectile.GetDamageModel().damage += 2;
             attackModel.weapons[0].projectile.GetBehavior<TravelStraitModel>().Speed = 40f;
             attackModel.weapons[0].projectile.GetBehavior<TravelStraitModel>().Lifespan = 250.0f;
-            attackModel.weapons[0].rate *= 0.35f;
+            attackModel.weapons[0].rate *= 0.55f;
             towerModel.range *= 0.55f;
-            attackModel.weapons[0].projectile.pierce += 12;
+            attackModel.weapons[0].projectile.pierce += 3;
             attackModel.weapons[0].projectile.AddBehavior(new DamageModifierForTagModel("DamageModifierForTagModel_Fortified",
                 "Fortified",
                 1, 2, false, false));
             attackModel.weapons[0].projectile.AddBehavior(new DamageModifierForTagModel("DamageModifierForTagModel_Ceramic", "Ceramic",
                 1, 3, false, false));
             attackModel.weapons[0].projectile.ApplyDisplay<Zombey_Shot_DP>();
-            var Buff2 = new PierceSupportModel("PierceSupport", true, 6f,"Pierce:Support",null,false,"PierceBuff", "Zombey_Buff");
+            var Buff2 = new PierceSupportModel("PierceSupport", true, 3f,"Pierce:Support",null,false,"PierceBuff", "Zombey_Buff");
             Buff2.ApplyBuffIcon<Zombey_Buff_DP>();
             towerModel.AddBehavior(Buff2);
             towerModel.range = 27;
             towerModel.RemoveBehavior<CreateSoundOnTowerPlaceModel>();
             towerModel.RemoveBehavior<CreateSoundOnUpgradeModel>();
             towerModel.AddBehavior(new CreditPopsToParentTowerModel("DamageForMainTower"));
-            towerModel.radius += 25;
+            towerModel.radius = 10;
         }
 
     }
@@ -89,7 +89,7 @@ namespace PalutenMod.Upgrades.BottomPath
         public override string Portrait => "Zombey";
         public override string Icon => "Zombey";
         public override bool DontAddToShop => true;
-        public override string Description => "maudado";
+        public override string Description => "Just be more nice and polite..";
 
         public override void ModifyBaseTowerModel(TowerModel towerModel)
         {
@@ -98,15 +98,15 @@ namespace PalutenMod.Upgrades.BottomPath
             towerModel.AddBehavior(Game.instance.model.GetTowerFromId("Marine").GetBehavior<TowerExpireModel>().Duplicate());
             towerModel.GetBehavior<TowerExpireModel>().lifespan = 750;
             var attackModel = towerModel.GetAttackModel();
-            attackModel.weapons[0].projectile.AddBehavior(new DamageModifierForTagModel("dmgMod", "Moabs", 2f, 80f, false, false));
+            attackModel.weapons[0].projectile.AddBehavior(new DamageModifierForTagModel("dmgMod", "Moabs", 2f, 40f, false, false));
             attackModel.weapons[0].projectile.AddBehavior(Game.instance.model.GetTowerFromId("Adora 20").GetAttackModel().weapons[0].projectile.GetBehavior<AdoraTrackTargetModel>().Duplicate());
             attackModel.weapons[0].projectile.hasDamageModifiers = true;
-            attackModel.weapons[0].projectile.GetDamageModel().damage += 30;
+            attackModel.weapons[0].projectile.GetDamageModel().damage += 18;
             attackModel.weapons[0].projectile.GetBehavior<TravelStraitModel>().Speed = 20f;
             attackModel.weapons[0].projectile.GetBehavior<TravelStraitModel>().Lifespan = 250.0f;
-            attackModel.weapons[0].rate *= 6f;
+            attackModel.weapons[0].rate *= 8f;
             towerModel.range *= 1.6f;
-            attackModel.weapons[0].projectile.pierce += 120;
+            attackModel.weapons[0].projectile.pierce += 30;
             attackModel.weapons[0].projectile.ApplyDisplay<Maudado_Shot_DP>();
             var Buff3 = new RateSupportModel("MaudadoBuff", 0.8f, true, "Rate:Support", false,1,null,"MaudadoBuff", "maudado_Buff",false);
             Buff3.ApplyBuffIcon<MAUDADO_Buff_DP>();
@@ -115,7 +115,7 @@ namespace PalutenMod.Upgrades.BottomPath
             towerModel.RemoveBehavior<CreateSoundOnTowerPlaceModel>();
             towerModel.RemoveBehavior<CreateSoundOnUpgradeModel>();
             towerModel.AddBehavior(new CreditPopsToParentTowerModel("DamageForMainTower"));
-            towerModel.radius += 25;
+            towerModel.radius = 10;
         }
 
     }
@@ -125,10 +125,10 @@ namespace PalutenMod.Upgrades.BottomPath
 
         public override int Path => BOTTOM;
         public override int Tier => 5;
-        public override int Cost => 35000;
+        public override int Cost => 45000;
 
-        public override string DisplayName => "More Supporter";
-        public override string Description => "Paluten summons his two friends Zombey(Piere-Buffs Nearby Monkeys) and Maudado( +(20%)AttackSpeed-Buffs Nearby Monkeys)";
+        public override string DisplayName => "The hole squad";
+        public override string Description => "Paluten summons his two other friends, Zombey (providing pierce buffs to nearby monkeys) and Maudado (granting a 20% attack speed buff to nearby monkeys)";
 
 
         public override void ApplyUpgrade(TowerModel tower)

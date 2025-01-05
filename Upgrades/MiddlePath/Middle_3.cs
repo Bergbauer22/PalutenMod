@@ -22,7 +22,7 @@ namespace PalutenMod.Upgrades.MiddlePath
         public override string DisplayName => "Evil Paluten Portal?!";
 
         public override string Description =>
-            "Adds a Portal attack to this Tower thats eat every Bloon and convert it into Money.Also he collect thinks in his Area like Drop Boxes / Bananas / Traps (This Attack was created from Palutens Son Evil Paluten).";
+            "A portal attack is added to the tower, which consumes Bloons and converts them into money (created by Paluten's son, Evil Paluten).";
 
 
 
@@ -44,10 +44,10 @@ namespace PalutenMod.Upgrades.MiddlePath
             trap.range += 40;
             tower.range += 40;
             tower.towerSelectionMenuThemeId = "SelectPointInput";
-            trap.weapons[0].projectile.pierce = 400;
+            trap.weapons[0].projectile.pierce = 500;
             trap.weapons[0].projectile.GetBehavior<EatBloonModel>().rbeCapacity = 20000;
             trap.weapons[0].projectile.GetBehavior<EatBloonModel>().rbeCashMultiplier = 3.5f;
-            trap.weapons[0].projectile.GetBehavior<EatBloonModel>().projectile.pierce = 1900;
+            trap.weapons[0].projectile.GetBehavior<EatBloonModel>().projectile.pierce = 500;
             trap.weapons[0].projectile.GetBehavior<EatBloonModel>().projectile.GetBehavior<CashModel>().minimum = 1000;
             trap.weapons[0].projectile.GetBehavior<EatBloonModel>().projectile.GetBehavior<CashModel>().maximum = 21000;
             trap.weapons[0].projectile.ApplyDisplay<P_Trap>();
@@ -56,10 +56,10 @@ namespace PalutenMod.Upgrades.MiddlePath
                 trap.weapons[0].projectile.GetDescendants<FilterInvisibleModel>().ForEach((model) => model.isActive = false);
             }
             trap.weapons[0].projectile.GetBehavior<EatBloonModel>().projectile.ApplyDisplay<P_Trap2>();
-            trap.weapons[0].Rate = 300;
+            trap.weapons[0].Rate = 100;
             if (tower.appliedUpgrades.Contains(UpgradeID<DoubleShoot>()))
             {
-                trap.weapons[0].Rate = 200f;
+                trap.weapons[0].Rate = 75f;
             }
             if (!(tower.appliedUpgrades.Contains(UpgradeID<Botton_5>()) && !tower.appliedUpgrades.Contains(UpgradeID<Middle_5>())))
             {

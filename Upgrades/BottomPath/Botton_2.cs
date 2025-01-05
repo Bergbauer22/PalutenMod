@@ -21,7 +21,7 @@ namespace PalutenMod.Upgrades.BottomPath
         public override int Cost => 3750;
 
         public override string DisplayName => "Sticky Pumkin";
-        public override string Description => "Can attack with Glue";
+        public override string Description => "He can attack now using sticky pumpkins";
 
         
 

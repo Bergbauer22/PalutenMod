@@ -26,8 +26,8 @@ namespace PalutenMod.Upgrades.TopPath
         public override int Cost => 140000;
         public override int Priority => -2;
 
-        public override string Description => "He's now able to use Lightnings and recieved an End Portal ability that can Terminate Everythink (BIG Cooldown)";
-        public override string DisplayName => "Hacked Minecraft";
+        public override string Description => "He can now use lightning attacks and gains an End Portal ability that can terminate everything";
+        public override string DisplayName => "In Minecraft";
 
 
         public class PalutenDisplay : ModDisplay
@@ -56,7 +56,7 @@ namespace PalutenMod.Upgrades.TopPath
             airModel2.droneModel.GetAttackModel().weapons[0].rate *= 0.85f;
             airModel2.droneModel.GetAttackModel().weapons[0].projectile.GetBehavior<DamageModel>().overrideDistributeBlocker = true;
             airModel2.droneModel.GetAttackModel().weapons[0].projectile.AddBehavior(new DamageModifierForTagModel("DamageModifierForTagModel_Ddt", "Ddt",
-                1, 49999999, false, false));
+                1, 15, false, false));
             var druid = Game.instance.model.GetTower(TowerType.Druid, 2);
             var lightning = druid.GetAttackModel().weapons.First(w => w.name == "WeaponModel_Lightning").Duplicate();
             lightning.animation = 1;
@@ -64,12 +64,12 @@ namespace PalutenMod.Upgrades.TopPath
             lightning.rate = 0.005f;
             lightning.projectile.GetDamageModel().damage += 5;
             lightning.projectile.AddBehavior(new DamageModifierForTagModel("DamageModifierForTagModel_Ceramic", "Ceramic",
-                1, 30, false, false));
+                1, 3, false, false));
             lightning.projectile.AddBehavior(new DamageModifierForTagModel("DamageModifierForTagModel_Fortified",
                 "Fortified", 1, 5, false, false));
             airModel2.droneModel.GetAttackModel().AddWeapon(lightning);
             airModel2.droneModel.GetAttackModel().weapons[0].projectile.AddBehavior(new DamageModifierForTagModel("DamageModifierForTagModel_Bad", "Bad",
-                1, 2, false, false));
+                1, 1, false, false));
             if (tower.appliedUpgrades.Contains(UpgradeID<Middle_2>()))
             {
                 lightning.rate = 0.004f;

@@ -11,8 +11,8 @@ namespace PalutenMod.Upgrades.TopPath
         public override int Tier => 2;
         public override int Cost => 2000;
 
-        public override string DisplayName => "Clone-Bomb?";
-        public override string Description => "Throws two Pumkins at a time also + (10%) Attack speed";
+        public override string DisplayName => "Clone-Bomb";
+        public override string Description => "He throws two pumpkins at a time and gains a 10% attack speed boost";
 
         //public override string Portrait => "PalutenTower-Portrait";
 

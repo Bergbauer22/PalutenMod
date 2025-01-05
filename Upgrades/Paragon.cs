@@ -76,13 +76,13 @@ namespace PalutenMod.Upgrades
             Avatarspawner2[0].weapons[0].projectile.RemoveBehavior<CreateTowerModel>();
             Avatarspawner2[0].name = "ZOMBEY";
             Avatarspawner2[0].weapons[0].projectile.AddBehavior(new CreateTowerModel("CreateTower", GetTowerModel<Maudado_1>(), 0, false, false, false, false, false));
-            towerModel.AddBehavior(Avatarspawner2[0]);
+          //  towerModel.AddBehavior(Avatarspawner2[0]);
             AttackModel[] Avatarspawner3 = { Game.instance.model.GetTowerFromId("EngineerMonkey-200").GetAttackModels().First(a => a.name == "AttackModel_Spawner_").Duplicate() };
             Avatarspawner3[0].weapons[0].rate = 32275;
             Avatarspawner3[0].weapons[0].projectile.RemoveBehavior<CreateTowerModel>();
             Avatarspawner3[0].name = "Maudado";
             Avatarspawner3[0].weapons[0].projectile.AddBehavior(new CreateTowerModel("CreateTower", GetTowerModel<Zombey_1>(), 0, false, false, false, false, false));
-            towerModel.AddBehavior(Avatarspawner3[0]);
+          //  towerModel.AddBehavior(Avatarspawner3[0]);
             towerModel.GetAttackModel().weapons[0].projectile.AddBehavior(new DamageModifierForTagModel("DamageModifierForTagModel_Ddt", "Ddt",
                 1, 499999999, false, false));
             towerModel.GetAttackModel().weapons[0].projectile.AddBehavior(new WindModel("WindModel_", 0, 200, 100, true, null, 0, null, 1));
@@ -93,7 +93,7 @@ namespace PalutenMod.Upgrades
     public class Paragon : ModParagonUpgrade<PalutenTower>
     {
         public override int Cost => 900000;
-        public override string Description => "Paluten tranform into the ALMIGHTY POWER MACHINE";
+        public override string Description => "Paluten transforms into the Almighty Power Machine";
         public override string DisplayName => "ALMIGHTY POWER MACHINE";
         
         public override void ApplyUpgrade(TowerModel tower)
@@ -104,13 +104,14 @@ namespace PalutenMod.Upgrades
             Avatarspawner[0].weapons[0].projectile.RemoveBehavior<CreateTowerModel>();
             Avatarspawner[0].name = "GLP";
             Avatarspawner[0].weapons[0].projectile.AddBehavior(new CreateTowerModel("CreateTower", GetTowerModel<GLP_1>(), 0, false, false, false, false, false));
-            tower.AddBehavior(Avatarspawner[0]);
+            //tower.AddBehavior(Avatarspawner[0]);
             var Money = Game.instance.model.GetTowerFromId("Benjamin").GetDescendant<PerRoundCashBonusTowerModel>().Duplicate();
             Money.distributeCash = false;
-            Money.cashPerRound = 5000;
+            Money.cashPerRound = 10000;
             tower.ApplyDisplay<PM_Tower>();
             AttackModel[] Avatarspawner1 = { Game.instance.model.GetTowerFromId("EngineerMonkey-200").GetAttackModels().First(a => a.name == "AttackModel_Spawner_").Duplicate() };
             Avatarspawner1[0].weapons[0].rate = 1500;
+            Avatarspawner1[0].range += 20;
             Avatarspawner1[0].weapons[0].projectile.RemoveBehavior<CreateTowerModel>();
             Avatarspawner1[0].name = "Bador";
             Avatarspawner1[0].weapons[0].projectile.AddBehavior(new CreateTowerModel("CreateTower", GetTowerModel<Bador>(), 0, false, false, false, false, false));
@@ -133,7 +134,7 @@ namespace PalutenMod.Upgrades
             lightning.animation = 1;
             lightning.projectile.pierce = 9999999;
             lightning.rate = 0.0075f;
-            lightning.projectile.GetDamageModel().damage += 25;
+            lightning.projectile.GetDamageModel().damage += 35;
             lightning.projectile.AddBehavior(new DamageModifierForTagModel("DamageModifierForTagModel_Ceramic", "Ceramic",
                 1, 130, false, false));
             lightning.projectile.AddBehavior(new DamageModifierForTagModel("DamageModifierForTagModel_Fortified",
@@ -143,7 +144,7 @@ namespace PalutenMod.Upgrades
             Portal.cooldown = 250;
             tower.range = attackModel.range;
             tower.AddBehavior(Portal);
-            attackModel.range *= 4;
+            attackModel.range *= 5;
             tower.range = attackModel.range;
             GetAudioClip<PalutenModMOD>("HelloFriends2").Play();
             

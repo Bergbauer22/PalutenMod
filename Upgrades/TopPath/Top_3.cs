@@ -22,8 +22,8 @@ namespace PalutenMod.Upgrades.TopPath
         public override int Tier => 3;
         public override int Cost => 7500;
 
-        public override string DisplayName => "Joining Minecraft...";
-        public override string Description => "Throws now an big Iron Pickage that can randomly Push Bloons back (+5DM)";
+        public override string DisplayName => "Create new world";
+        public override string Description => "He throws a large iron pickaxe that can randomly push Bloons back";
 
 
 
@@ -35,13 +35,13 @@ namespace PalutenMod.Upgrades.TopPath
             {
                 tower.range += 5;
                 tower.GetAttackModel().range += 5;
-                tower.GetAttackModel().weapons[0].projectile.GetDamageModel().damage += 3;
+                tower.GetAttackModel().weapons[0].projectile.GetDamageModel().damage += 2;
                 foreach (var projectile in tower.GetWeapons())
                 {
                     var attackModel = tower.GetAttackModel();
                     
                     projectile.projectile.AddBehavior(new WindModel("WindModel_", 0, 20, 10, false, null, 0, null, 1));
-                    projectile.projectile.pierce += 40;
+                    projectile.projectile.pierce += 20;
                     projectile.GetDescendants<Il2CppAssets.Scripts.Models.Towers.Filters.FilterInvisibleModel>().ForEach(model => model.isActive = false);
                     projectile.projectile.hasDamageModifiers = true;
                     var jumptobloons = Game.instance.model.GetTower(TowerType.BoomerangMonkey, 5, 0, 2).GetWeapon().projectile.Duplicate();
@@ -49,11 +49,11 @@ namespace PalutenMod.Upgrades.TopPath
                     projectile.projectile.AddBehavior(jumptobloons);
                     foreach (var damageModifierForTagModel in projectile.GetBehaviors<DamageModifierForTagModel>())
                     {
-                        damageModifierForTagModel.damageAddative += 13;
+                        damageModifierForTagModel.damageAddative += 4;
                     }
 
                     projectile.projectile.AddBehavior(new DamageModifierForTagModel("DamageModifierForTagModel_Moabs", "Moabs",
-                        1, 5, false, false));
+                        1, 4, false, false));
                     
                     projectile.projectile.ApplyDisplay<IronP_Display>();
                 }
