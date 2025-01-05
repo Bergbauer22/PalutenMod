@@ -17,8 +17,6 @@ The Top Path is a Damage Dealer Path |
 The Middle Path is a Path where you must play very active | 
 The Botton Path is a Supporter
 <h1 aling="left"><img alt="GitHub all releases" height="25" src="https://img.shields.io/github/downloads/Bergbauer22/PalutenMod/total?label=Total%20Dowloads"></h1>
-# The Future of this Mod:
-I tried now for a long time to make a Cutscene that plays when you upgrade the Tower to the Paragon but i just failed doing this so i want to make this in the future as an Update.
 
 
 
